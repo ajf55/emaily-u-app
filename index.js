@@ -5,7 +5,7 @@ const app = express();
 
 // creating the route handlers
 app.get('/', (req, res)=> {
-  res.send({ hi: 'there' });
+  res.send({ hi: 'there test 2' });
 });
 
 
