@@ -1,14 +1,9 @@
 // import express using syntax that works with node.js
-const express = require('express');
-// creating the app function for the generic route handlers
+const express = require("express");
+require('./services/passport');
 const app = express();
-
-// creating the route handlers
-app.get('/', (req, res)=> {
-  res.send({ hi: 'there test 2' });
-});
-
-
+// https://console.developers.google.com
+require('./routes/authRoutes')(app);
 // look at underlying environment and see if there is a port declared
 // for "|| 5000" it means that if there isn't a dynamically assigned port form cloud application, default 5000 ; eg dev environment
 const PORT = process.env.PORT || 5000;
