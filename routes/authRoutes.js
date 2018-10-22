@@ -1,6 +1,6 @@
-const passport = require('passport');
+const passport = require("passport");
 
-module.exports = (app) => {
+module.exports = app => {
   // adding a routehandler
   // reference express app object | get type http request
   app.get(
@@ -12,18 +12,15 @@ module.exports = (app) => {
 
   app.get("/auth/google/callback", passport.authenticate("google"));
 
-  app.get('/api/logout', (req, res) => {
+  app.get("/api/logout", (req, res) => {
     req.logout();
     res.send(req.user);
   });
 
-  app.get('/api/current_user', (req, res) => {
+  app.get("/api/current_user", (req, res) => {
     res.send(req.user);
   });
 };
-
-
-
 
 // creating the route handlers - REMOVED
 /* app.get('/', (req, res)=> {
