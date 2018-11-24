@@ -14,7 +14,7 @@ const Landing = () => <h2>Landing</h2>
 // Route Setup
 const App =() => {
   return(
-    <div>
+    <div className = "container">
     <BrowserRouter>
       <div>
         <Header />
