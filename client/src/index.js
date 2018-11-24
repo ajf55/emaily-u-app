@@ -8,7 +8,7 @@ import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 
 // reducer
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 // use JSX tags
 ReactDOM.render(
