@@ -7,6 +7,7 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require("./models/user");
+require("./models/survey");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI);
@@ -30,7 +31,9 @@ app.use(passport.session());
 // require and call functions
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
+// route handling for requests that need to go to React App or client index.html catch all
 if ((process.env.NODE_ENV = "production")) {
   // express will serve production assets
   app.use(express.static("client/build"));

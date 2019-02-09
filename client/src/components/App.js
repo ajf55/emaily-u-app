@@ -5,13 +5,13 @@ import React, { Component } from "react";
 // route sets up a rule
 they are react components*/
 import { BrowserRouter, Route } from "react-router-dom";
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 import Header from "./Header";
-import Landing from './Landing';
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
+import Landing from "./Landing";
+import Dashboard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 
 // Route Setup
 class App extends Component {
@@ -19,11 +19,12 @@ class App extends Component {
     this.props.fetchUser();
   }
 
+  // react router
   render() {
     return (
       <div className="container">
         <BrowserRouter>
-          <div>
+          <div className="container">
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
@@ -36,4 +37,7 @@ class App extends Component {
 }
 
 // export newly reacted component
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions
+)(App);
