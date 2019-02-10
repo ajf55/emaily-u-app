@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
-
-// const Schema = mongoose.Schema; -> destructured
 const { Schema } = mongoose;
+const RecipientSchema = require("./Recipient");
 
-// create Schema and add/remove properties (can freely do so later)
-// schema type or use an object
-const userSchema = new Schema({
-  googleId: String,
-  credits: { type: Number, default: 0 }
+const surveySchema = new Schema({
+  title: String,
+  body: String,
+  subject: String,
+  recipients: [RecipientSchema],
+  yes: { type: Number, default: 0 },
+  no: { type: Number, default: 0 },
+  _user: { type: Schema.Types.ObjectId, ref: "User" },
+  dateSent: Date,
+  lastResponded: Date
 });
 
-// create model class
-mongoose.model("users", userSchema);
+mongoose.model("surveys", surveySchema);
