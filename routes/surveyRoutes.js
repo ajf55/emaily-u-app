@@ -20,6 +20,7 @@ module.exports = app => {
   });
 
   app.get("/api/surveys/:surveyId/:choice", (req, res) => {
+    console.log(choice);
     res.send("Thanks for voting!");
   });
 
