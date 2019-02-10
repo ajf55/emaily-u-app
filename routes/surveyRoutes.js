@@ -20,7 +20,7 @@ module.exports = app => {
   });
 
   app.get("/api/surveys/:surveyId/:choice", (req, res) => {
-    res.send("Thanks for your feedback!");
+    res.send("Thanks for voting!");
   });
 
   app.post("/api/surveys/webhooks", (req, res) => {
@@ -43,7 +43,6 @@ module.exports = app => {
       .uniqBy("email", "surveyId")
       // at the end of lodash chain pull out the value
       .each(({ surveyId, email, choice }) => {
-        console.log(choice);
         Survey.updateOne(
           {
             _id: surveyId,
