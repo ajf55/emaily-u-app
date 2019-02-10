@@ -6,11 +6,15 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-require("./models/user");
-require("./models/survey");
+require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI);
+mongoose.Promise = global.Promise;
+mongoose.connect(
+  keys.mongoURI,
+  { useNewUrlParser: true }
+);
 
 const app = express();
 
