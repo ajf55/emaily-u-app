@@ -40,7 +40,11 @@ passport.use(
         return done(null, existingUser);
       }
       // we don't have a user record with this ID
-      const user = await new User({ googleID: profile.id }).save();
+      const user = await new User({
+        googleID: profile.id,
+        email: profile.emails[0].value,
+        name: profile.name.givenName + " " + profile.name.familyName
+      }).save();
       done(null, user);
       // .save() takes the record and saves to the DB
     }

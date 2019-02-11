@@ -7,7 +7,9 @@ const { Schema } = mongoose;
 // schema type or use an object
 const userSchema = new Schema({
   googleId: String,
-  credits: { type: Number, default: 5 }
+  email: String,
+  name: String,
+  credits: { type: Number, default: 3 }
 });
 
 // create model class
